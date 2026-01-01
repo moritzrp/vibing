@@ -6,7 +6,7 @@ from google import genai
 from google.genai import types
 
 import config
-from functions import AVAILABLE_FUNCTIONS, call_function
+import functions
 
 
 def main(user_prompt: str, verbose: bool):
@@ -26,7 +26,8 @@ def main(user_prompt: str, verbose: bool):
             model=config.MODEL,
             contents=messages,
             config=types.GenerateContentConfig(
-                tools=AVAILABLE_FUNCTIONS, system_instruction=config.SYSTEM_PROMPT
+                tools=functions.AVAILABLE_FUNCTIONS,
+                system_instruction=config.SYSTEM_PROMPT,
             ),
         )
 
@@ -56,7 +57,7 @@ def main(user_prompt: str, verbose: bool):
                     )
                 else:
                     print(f" - Calling function: {function_call.name}")
-                function_call_result = call_function(function_call)
+                function_call_result = functions.call_function(function_call)
                 if not function_call_result.parts:
                     raise Exception("function call result does not have parts")
                 if not function_call_result.parts[0].function_response:
