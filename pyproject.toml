@@ -1,0 +1,13 @@
+[project]
+name = "vibing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google-genai==1.12.1",
+    "python-dotenv==1.1.0",
+    "ruff>=0.14.10",
+]
+[tool.ruff.lint]
+extend-select=["I"]
