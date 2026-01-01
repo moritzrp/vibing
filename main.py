@@ -60,7 +60,7 @@ Rules and constraints:
 Always prefer correctness, clarity, and maintainability over cleverness.
 """
 
-AGENT_LIMIT = 10
+AGENT_LIMIT = 20
 
 
 def main(args: argparse.Namespace):
