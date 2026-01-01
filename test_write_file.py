@@ -1,4 +1,5 @@
 from typing import NamedTuple
+
 from functions.file_utils import write_file
 
 
